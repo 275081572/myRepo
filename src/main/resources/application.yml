@@ -31,11 +31,12 @@ mybatis:
   mapper-locations: classpath:mybatis/**/*.xml
 
 #配置日志
-logging:
-  com.fishpro.log: debug
-  #指定输出文件的存储路径(自动创建目录和文件)
-  file: logs/debug.log
-  #指定日志输出格式
-  pattern:
-    console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
+#logging:
+#  com.fishpro.log: debug
+#  #指定输出文件的存储路径(自动创建目录和文件)
+#  file: logs/debug.log
+#  #指定日志输出格式
+#  pattern:
+#    console: "%d %-5level %logger : %msg%n"
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+
