@@ -7,6 +7,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 @CrossOrigin
 public class UserController {
 
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private IUserService userService;
 
@@ -32,6 +36,12 @@ public class UserController {
     })
     @GetMapping("/findById")
     public JsonResult findById(@RequestParam(value = "uId") Long uId) {
+
+        logger.debug("This is a debug message");
+        logger.info("This is an info message");
+        logger.warn("This is a warn message");
+        logger.error("This is an error message");
+
         try {
             User user = userService.findById(uId);
             return JsonResult.ok(user);
