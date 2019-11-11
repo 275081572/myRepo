@@ -13,7 +13,7 @@
     <!--按天生成日志-->
     <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <Prudent>true</Prudent>
-        <!-- 过滤器，只打印ERROR级别的日志 -->
+        <!-- 过滤器 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名-->
             <FileNamePattern>
@@ -49,7 +49,7 @@
     <logger name="java.sql.PreparedStatement" level="DEBUG"/>
     <logger name="com.ruidou.baoqian.mapper" level="DEBUG"/>
 
-    <!-- 开发环境下的日志配置 -->
+    <!-- 开发环境下的日志配置:设置打印级别 -->
     <root level="debug">
         <appender-ref ref="console"/>
         <appender-ref ref="logFile"/>
