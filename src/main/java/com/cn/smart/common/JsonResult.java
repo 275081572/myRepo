@@ -27,4 +27,12 @@ public class JsonResult {
         result.setStatus(ResultConstanst.FAIL);
         return result;
     }
+
+    public static JsonResult error(int code, String msg){
+        JsonResult result = new JsonResult();
+        result.setStatus(code);
+        result.setMessage(msg);
+        return result;
+    }
+
 }

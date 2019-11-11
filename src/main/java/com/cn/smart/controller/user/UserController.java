@@ -1,6 +1,8 @@
 package com.cn.smart.controller.user;
 
+import com.cn.smart.common.BizException;
 import com.cn.smart.common.JsonResult;
+import com.cn.smart.common.ResultConstanst;
 import com.cn.smart.jpa.entity.user.User;
 import com.cn.smart.service.user.IUserService;
 import io.swagger.annotations.Api;
@@ -69,4 +71,13 @@ public class UserController {
            return JsonResult.error();
         }
     }
+
+    @ApiOperation(value="异常测试")
+    @GetMapping("/ececptionTest")
+    public JsonResult ececptionTest() throws Exception{
+        //throw new BizException(ResultConstanst.FAIL, ResultConstanst.MSG.PARAM_ERROR);
+        throw new IllegalAccessException();
+        //return JsonResult.ok();
+    }
+
 }
