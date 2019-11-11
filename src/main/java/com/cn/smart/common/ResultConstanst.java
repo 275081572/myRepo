@@ -1,5 +1,8 @@
 package com.cn.smart.common;
 
+/**
+ * 返回常量
+ */
 public class ResultConstanst {
 
      public static final int SUCCESS = 200;

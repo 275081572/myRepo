@@ -2,6 +2,9 @@ package com.cn.smart.common;
 
 import lombok.Data;
 
+/**
+ * 统一返回格式
+ */
 @Data
 public class JsonResult {
 
