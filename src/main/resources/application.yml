@@ -25,6 +25,8 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  thymeleaf:
+    cache: false
 #mybatis
 mybatis:
   type-aliases-package: com.cn.smart.jpa.entity

@@ -20,6 +20,7 @@ public class ExceptionHandle {
             BizException bizException = (BizException) e;
             return JsonResult.error(bizException.getCode(), bizException.getMsg());
         }catch (Exception exception){
+            e.printStackTrace();
             return JsonResult.error();
         }
     }

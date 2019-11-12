@@ -1,8 +1,6 @@
 package com.cn.smart.controller.user;
 
-import com.cn.smart.common.BizException;
 import com.cn.smart.common.JsonResult;
-import com.cn.smart.common.ResultConstanst;
 import com.cn.smart.jpa.entity.user.User;
 import com.cn.smart.service.user.IUserService;
 import io.swagger.annotations.Api;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api/1.0/user")
@@ -74,10 +70,11 @@ public class UserController {
 
     @ApiOperation(value="异常测试")
     @GetMapping("/ececptionTest")
-    public JsonResult ececptionTest() throws Exception{
+    public JsonResult ececptionTest(){
         //throw new BizException(ResultConstanst.FAIL, ResultConstanst.MSG.PARAM_ERROR);
-        throw new IllegalAccessException();
-        //return JsonResult.ok();
+        //throw new NullPointerException();
+        userService.ececptionTest();
+        return JsonResult.ok();
     }
 
 }
