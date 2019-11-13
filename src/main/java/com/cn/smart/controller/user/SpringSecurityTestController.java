@@ -18,7 +18,7 @@ import java.util.List;
  * 测试SpringSecurity
  */
 @Controller
-public class AppController {
+public class SpringSecurityTestController {
 
 	@RequestMapping("/")
     public String index() {

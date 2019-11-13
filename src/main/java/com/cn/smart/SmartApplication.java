@@ -13,7 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @Configuration
 @EnableCaching //开启Spring缓存
-@EnableSwagger2
 @EnableTransactionManagement //开启事务
 @EnableAspectJAutoProxy(proxyTargetClass = true) //开启aop
 @EnableJpaRepositories(basePackages = { "com.cn.smart.jpa" })

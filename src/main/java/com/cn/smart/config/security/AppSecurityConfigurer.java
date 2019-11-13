@@ -80,9 +80,18 @@ public class AppSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // spring-security 5.0 之后需要过滤静态资源
                 .antMatchers("/login","/css/**","/js/**","/img/*").permitAll()
-                .antMatchers("/", "/home").hasRole("USER")
+                // swagger start
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/images/**").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/configuration/ui").permitAll()
+                .antMatchers("/configuration/security").permitAll()
+                // swagger end
+                /*.antMatchers("/home").hasRole("USER")
                 .antMatchers("/admin/**").hasAnyRole("ADMIN", "DBA")
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()*/
                 .and()
                 .formLogin().loginPage("/login").successHandler(appAuthenticationSuccessHandler)
                 .usernameParameter("loginName").passwordParameter("password")
