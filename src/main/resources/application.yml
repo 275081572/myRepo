@@ -25,6 +25,10 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  #配置redis
+  redis:
+    host: 193.112.79.59
+    port: 6379
 #mybatis
 mybatis:
   type-aliases-package: com.cn.smart.jpa.entity
