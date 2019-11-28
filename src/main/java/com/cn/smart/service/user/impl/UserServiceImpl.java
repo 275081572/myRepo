@@ -4,6 +4,7 @@ import com.cn.smart.jpa.entity.user.User;
 import com.cn.smart.jpa.repository.user.UserRepository;
 import com.cn.smart.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,9 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
     @Override
     public void addUser(User user) {
         userRepository.save(user);
@@ -23,7 +27,8 @@ public class UserServiceImpl implements IUserService {
     //@Transactional(readOnly = true)
     @Override
     public User findById(Long id) {
-        return userRepository.getOne(id);
+        return jdbcTemplate.queryForObject("", User.class);
+        //return userRepository.getOne(id);
     }
 
     @Override
