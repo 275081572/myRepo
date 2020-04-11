@@ -34,6 +34,16 @@ mybatis:
   type-aliases-package: com.cn.smart.jpa.entity
   mapper-locations: classpath:mybatis/**/*.xml
 
+#rocketmq
+rocketmq:
+  namesrv:
+    ipaddress: 127.0.0.1:9876
+  producer:
+    groupname: rcs-admin-producer-group
+    instancename: xuwei
+    topics: topicsXuwei
+    tags: test
+
 #配置日志
 #logging:
 #  com.fishpro.log: debug

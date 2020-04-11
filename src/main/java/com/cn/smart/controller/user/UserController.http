@@ -1,0 +1,22 @@
+ #查询用户详情
+GET http://{{host}}/api/1.0/user/findById?uId=1
+Content-Type: application/json
+
+###
+
+ #查询黑名单列表
+POST http://{{host}}/rcs-admin/admin/blacklist/listblacklist
+Content-Type: application/json
+token:eb885b8d11e8d9cd3ae33ae30851c545
+
+{"pageNo":3,"pageSize":10,"type":1,"beginTime":1583164800000,"endTime":1583164800000}
+###{"pageNo":2,"pageSize":10,"type":1,"beginTime":1583164800000,"endTime":1583164800000}
+###{"phone":"", "beginTime":1582214400000,"endTime":1582214400000,"type": 1,"pageSize": 2,"pageNo": 1}
+###
+
+ #删除黑名单
+POST http://{{host}}/rcs-admin/admin/blacklist/deleteblacklist
+Content-Type: application/json
+
+{"ids":["61482226512035840","61482226512035841"]}
+###
