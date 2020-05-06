@@ -1,7 +1,9 @@
 package com.cn.smart.service.user.impl;
 
 import com.cn.smart.dto.ADTO;
+import com.cn.smart.dto.Account;
 import com.cn.smart.dto.BDTO;
+import com.cn.smart.dto.MemberDTO;
 import com.cn.smart.dto.MixDTO;
 import com.cn.smart.jpa.entity.user.User;
 import com.cn.smart.jpa.repository.user.UserRepository;
@@ -12,6 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -26,8 +34,18 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private MsgProducer msgProducer;
 
-    //线程测试
-    
+    /**线程池测试**/
+    ExecutorService executorService = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(512), new ThreadPoolExecutor.DiscardPolicy());
+
+    ExecutorService executorService2 = Executors.newFixedThreadPool(5);
+    private void testExecutor(){
+        executorService.submit(new Runnable() {
+            @Override public void run() {
+                System.out.println("");
+            }
+        });
+    }
 
     @Override
     public void addUser(User user) {
@@ -57,6 +75,18 @@ public class UserServiceImpl implements IUserService {
         User user = userRepository.getOne(id);
         //消息队列测试
         msgProducer.sendSettleOrderToMq(mixDTO);
+
+
+        //测试静态内部类
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setAge(12);
+        memberDTO.setName("徐伟");
+
+        Account account = new Account();
+        account.setId("111");
+        Account.Member member = new Account.Member();
+        BeanUtils.copyProperties(memberDTO, member);
+        account.setMember(member);
 
         return user;
     }
