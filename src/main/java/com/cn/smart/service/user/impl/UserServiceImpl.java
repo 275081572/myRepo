@@ -74,7 +74,7 @@ public class UserServiceImpl implements IUserService {
 
         User user = userRepository.getOne(id);
         //消息队列测试
-        msgProducer.sendSettleOrderToMq(mixDTO);
+        //msgProducer.sendSettleOrderToMq(mixDTO);
 
 
         //测试静态内部类

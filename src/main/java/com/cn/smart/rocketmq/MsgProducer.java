@@ -1,20 +1,5 @@
 package com.cn.smart.rocketmq;
 
-import com.alibaba.fastjson.JSON;
-import com.chuanglan.platform.rocketmqplugin.bean.Subscription;
-import com.chuanglan.platform.rocketmqplugin.message.SmsRealMessageFactory;
-import com.chuanglan.platform.rocketmqplugin.message.msgformat.PackedMsg;
-import com.chuanglan.platform.rocketmqplugin.message.msgformat.SmsMsg;
-import com.chuanglan.platform.rocketmqplugin.producer.DefaultProducerFactory;
-import com.cn.smart.dto.MixDTO;
-import org.apache.rocketmq.client.producer.SendResult;
-import org.apache.rocketmq.client.producer.SendStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MsgProducer {
 
-    Logger logger = LoggerFactory.getLogger(MsgProducer.class);
+    /*Logger logger = LoggerFactory.getLogger(MsgProducer.class);
 
     @Autowired
     DefaultProducerFactory defaultProducerFactory;
@@ -56,7 +41,6 @@ public class MsgProducer {
             logger.warn("sendSettleOrderToMq fail!,orig msg is:{}", JSON.toJSONString(mixDTO));
             logger.error("sendSettleOrderToMq error!",e);
         }
-    }
-
+    }*/
 
 }

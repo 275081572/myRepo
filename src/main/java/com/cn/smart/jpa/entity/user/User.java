@@ -1,6 +1,5 @@
 package com.cn.smart.jpa.entity.user;
 
-import com.chuanglan.platform.rocketmqplugin.message.msgformat.BaseMsg;
 import com.cn.smart.jpa.entity.AbstractEntity;
 import lombok.Data;
 

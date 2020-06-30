@@ -1,6 +1,5 @@
 package com.cn.smart.dto;
 
-import com.chuanglan.platform.rocketmqplugin.message.msgformat.BaseMsg;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,7 +8,7 @@ import java.io.Serializable;
  * @author ChuangLan
  */
 @Data
-public class MixDTO extends BaseMsg implements Serializable {
+public class MixDTO  implements Serializable {
 
     private String name;
 

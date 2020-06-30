@@ -1,13 +1,6 @@
 package com.cn.smart.rocketmq;
 
-import com.chuanglan.platform.rocketmqplugin.message.SmsRealMessageFactory;
-import com.chuanglan.platform.rocketmqplugin.producer.DefaultProducerFactory;
-import com.chuanglan.platform.rocketmqplugin.serialize.kryo.DefaultKryoFactory;
-import com.chuanglan.platform.rocketmqplugin.serialize.kryo.KryoSerializer;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -28,7 +21,7 @@ public class RocketmqConfig {
 
 
 
-    @Bean
+    /*@Bean
     public DefaultKryoFactory defaultKryoFactory(){
         return new DefaultKryoFactory();
     }
@@ -49,12 +42,6 @@ public class RocketmqConfig {
         DefaultProducerFactory defaultProducerFactory = new DefaultProducerFactory(nameserver, groupname, instancename);
         defaultProducerFactory.init();
         return defaultProducerFactory;
-    }
-
-
-
-
-
-
+    }*/
 
 }
