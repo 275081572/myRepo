@@ -1,0 +1,5 @@
+ #查询用户详情
+GET http://{{host}}/api/1.0/cache/findById?uId=1
+Content-Type: application/json
+
+###

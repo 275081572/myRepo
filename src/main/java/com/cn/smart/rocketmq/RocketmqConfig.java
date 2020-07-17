@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RocketmqConfig {
 
-    @Value(value = "${rocketmq.namesrv.ipaddress}")
+    /*@Value(value = "${rocketmq.namesrv.ipaddress}")
     public String nameserver="";
     @Value(value = "${rocketmq.producer.groupname}")
     public String groupname;
     @Value(value = "${rocketmq.producer.instancename}")
-    public String instancename;
+    public String instancename;*/
 
 
 

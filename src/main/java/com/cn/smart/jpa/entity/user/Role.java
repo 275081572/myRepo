@@ -12,6 +12,9 @@ import javax.persistence.Table;
 @Table(name = "role")
 public class Role extends AbstractEntity {
 
-    @Column(columnDefinition = "varchar(50) comment '授权信息'")
-    private String authority;
+    @Column(columnDefinition = "varchar(50) comment '名字'")
+    private String name;
+
+    @Column(columnDefinition = "tinyint comment '账户状态	0：已删除  1：使用中 2:已冻结 采用逻辑删除 '")
+    private int status;
 }
