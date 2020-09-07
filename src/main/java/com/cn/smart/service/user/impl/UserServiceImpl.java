@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.InputStream;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -94,5 +95,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void ececptionTest() {
         throw new NullPointerException();
+    }
+
+    public static void main(String[] args) {
+        UserServiceImpl userService = new UserServiceImpl();
+        InputStream input = userService.getClass().getResourceAsStream("94001.txt");
     }
 }

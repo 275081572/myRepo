@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.smart.mapper.product.PhoneDao">
+  <resultMap id="BaseResultMap" type="com.cn.smart.model.product.Phone">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="empty" jdbcType="BIT" property="empty" />
+    <result column="sale_date" jdbcType="TIMESTAMP" property="saleDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, model, price, keyword, empty, sale_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phone
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from phone
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cn.smart.model.product.Phone" useGeneratedKeys="true">
+    insert into phone (`name`, model, price, 
+      keyword, empty, sale_date
+      )
+    values (#{name,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{keyword,jdbcType=VARCHAR}, #{empty,jdbcType=BIT}, #{saleDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cn.smart.model.product.Phone" useGeneratedKeys="true">
+    insert into phone
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="empty != null">
+        empty,
+      </if>
+      <if test="saleDate != null">
+        sale_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="empty != null">
+        #{empty,jdbcType=BIT},
+      </if>
+      <if test="saleDate != null">
+        #{saleDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.smart.model.product.Phone">
+    update phone
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="keyword != null">
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="empty != null">
+        empty = #{empty,jdbcType=BIT},
+      </if>
+      <if test="saleDate != null">
+        sale_date = #{saleDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.smart.model.product.Phone">
+    update phone
+    set `name` = #{name,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      empty = #{empty,jdbcType=BIT},
+      sale_date = #{saleDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="query" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from phone
+    <where>
+      <if test="name != null and name != ''">
+        name = #{name}
+      </if>
+      <if test="empty == true">
+        AND empty = #{empty}
+      </if>
+      <if test="keyword != null and keyword != ''">
+        AND keyword like CONCAT('%',#{keyword},'%')
+      </if>
+      <if test="startTime != null">
+        AND #{startTime} &lt;= saleDate &lt;= #{endTime}
+      </if>
+    </where>
+    order by sale_date desc
+  </select>
+
+</mapper>

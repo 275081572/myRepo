@@ -1,0 +1,21 @@
+###
+#查询手机列表
+POST http://{{host}}/api/1.0/phone/query
+Content-Type: application/json
+
+{"empty":false, "pageSize": 3, "pageNum": 1}
+###
+
+###
+GET http://{{host}}/api/1.0/phone/findById?id=1
+Accept: application/json
+
+###
+
+#查询手机列表
+POST http://{{host}}/api/1.0/phone/update
+Content-Type: application/json
+
+{"empty":false, "id": "10", "keyword": "zhenhao"}
+###
+
