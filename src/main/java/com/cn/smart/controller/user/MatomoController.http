@@ -1,0 +1,8 @@
+ #查询用户详情
+POST http://{{host}}/api/1.0/matomo/search
+Content-Type: application/json
+
+{"url" : "http://193.112.79.59/matomo/index.php?module=API&method=UsersManager.addUser&userLogin=test1&password=123456&email=bw_penglimin@whty.com.cn&format=JSON&token_auth=f9546d3a61d3bb385af1d6c382739064"}
+###给用户授予权限{"url" : "http://193.112.79.59/matomo/index.php?module=API&method=UsersManager.setUserAccess&userLogin=test1&access=view&idSites=1,2&format=JSON&token_auth=f9546d3a61d3bb385af1d6c382739064"}
+###{"url" : "http://193.112.79.59/matomo/index.php?module=API&method=UsersManager.getUsers&userLogins=&format=JSON&token_auth=f9546d3a61d3bb385af1d6c382739064"}
+### ###新增用户
