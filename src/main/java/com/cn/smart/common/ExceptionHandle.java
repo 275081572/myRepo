@@ -1,16 +1,10 @@
 package com.cn.smart.common;
 
-import cn.hutool.http.HttpUtil;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.junit.Test;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 统一异常处理
