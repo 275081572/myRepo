@@ -71,4 +71,15 @@ public class PhoneController {
         }
     }
 
+    @PostMapping("/downloadZip")
+    @ResponseBody
+    public JsonResult downloadZip() {
+        try {
+            return JsonResult.ok();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonResult.error();
+        }
+    }
+
 }
