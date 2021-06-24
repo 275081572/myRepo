@@ -75,6 +75,8 @@ public class PhoneController {
     @ResponseBody
     public JsonResult downloadZip() {
         try {
+
+            ThreadLocal<String> threadLocal = new ThreadLocal<>();
             return JsonResult.ok();
         } catch (Exception e) {
             e.printStackTrace();

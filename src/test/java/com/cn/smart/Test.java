@@ -2,6 +2,9 @@ package com.cn.smart;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
+import com.google.common.base.Charsets;
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
 
 import java.util.Date;
 
@@ -48,4 +51,14 @@ public class Test {
         String format = DateUtil.format(offsetDay, "yyyy-MM-dd HH:mm:ss.SSS");
         return format.substring(11, 13) + ":00";
     }
+
+    /**测试布隆过滤器*/
+    @org.junit.Test
+    public void testBloomFilter(){
+        BloomFilter<String> bloomFilter = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8),100000,0.01);
+        bloomFilter.put("10086");
+        System.out.println(bloomFilter.mightContain("123456"));
+        System.out.println(bloomFilter.mightContain("10086"));
+    }
+
 }
