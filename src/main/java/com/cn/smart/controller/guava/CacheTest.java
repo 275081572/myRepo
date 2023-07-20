@@ -10,7 +10,6 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalListeners;
 import com.google.common.cache.RemovalNotification;
 
 /**
@@ -47,12 +46,12 @@ public class CacheTest {
                     }
                 })
                 // 设置缓存的移除通知（异步）
-                .removalListener(RemovalListeners.asynchronous(new RemovalListener<Object, Object>() {
-                    @Override
-                    public void onRemoval(RemovalNotification<Object, Object> notification) {
-                        // TODO
-                    }
-                }, threadPoolExecutor))
+                // .removalListener(RemovalListeners.asynchronous(new RemovalListener<Object, Object>() {
+                // @Override
+                // public void onRemoval(RemovalNotification<Object, Object> notification) {
+                // // TODO
+                // }
+                // }, threadPoolExecutor))
                 // 指定CacheLoader，在缓存不存在时通过CacheLoader的实现自动加载缓存
                 .build(new CacheLoader<Integer, String>() {
                     @Override
