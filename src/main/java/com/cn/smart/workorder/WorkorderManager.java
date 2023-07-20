@@ -45,7 +45,7 @@ public class WorkorderManager {
         context.setValue("xxx");
         context.setStatus(3);
 
-        AbstractTemplate<WorkorderContext, String> abstractTemplate = strategyService.getTemplate(2);
+        AbstractTemplate<WorkorderContext, String> abstractTemplate = strategyService.getTemplate(1);
         abstractTemplate.initProcess(context);
 		try {
             abstractTemplate.templateProcess(context);

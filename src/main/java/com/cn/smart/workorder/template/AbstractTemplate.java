@@ -1,6 +1,7 @@
 package com.cn.smart.workorder.template;
 
 import com.cn.smart.workorder.chain.Chain;
+import com.cn.smart.workorder.chain.WorkorderContext;
 
 import java.util.Objects;
 
@@ -24,4 +25,5 @@ public abstract class AbstractTemplate<P, O> implements ITemplate<P, O> {
     }
 
     protected abstract Chain<P> initChina();
+
 }

@@ -1,12 +1,13 @@
 package com.cn.smart.workorder.template;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cn.smart.workorder.chain.Chain;
 import com.cn.smart.workorder.chain.CheckParamHandler;
 import com.cn.smart.workorder.chain.CheckStatusHandler;
 import com.cn.smart.workorder.chain.WorkorderContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * TODO
@@ -15,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2023/7/20
  */
 @Service
-@StrategyAnnotation(chooseType = StrategyEnum.GD)
-public class GDTemplate extends AbstractTemplate<WorkorderContext, String>{
+@StrategyAnnotation(chooseType = StrategyEnum.XMD)
+public class XMDTemplate extends AbstractTemplate<WorkorderContext, String>{
 
     @Autowired
     private CheckStatusHandler checkStatusHandler;
@@ -32,7 +33,7 @@ public class GDTemplate extends AbstractTemplate<WorkorderContext, String>{
     @Override
     @Transactional
     public String templateProcess(WorkorderContext workorderContext) {
-        System.out.println("我是工单，已执行到核心流程。。。");
+        System.out.println("我是洗每美单，已执行到核心流程。。。");
         return null;
     }
 
