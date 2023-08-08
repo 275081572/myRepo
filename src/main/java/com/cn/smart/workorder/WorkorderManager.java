@@ -1,5 +1,6 @@
 package com.cn.smart.workorder;
 
+import com.cn.smart.test.TrsPriceDto;
 import com.cn.smart.workorder.chain.Chain;
 import com.cn.smart.workorder.chain.CheckParamHandler;
 import com.cn.smart.workorder.chain.CheckStatusHandler;
@@ -9,6 +10,12 @@ import com.cn.smart.workorder.template.StrategyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * TODO
@@ -31,16 +38,25 @@ public class WorkorderManager {
 
     @GetMapping("/chain/test")
     public void test() {
-        WorkorderContext context = new WorkorderContext();
-        context.setValue("xxx");
-        context.setStatus(3);
+//        WorkorderContext context = new WorkorderContext();
+//        context.setValue("xxx");
+//        context.setStatus(3);
+//
+//        Chain<WorkorderContext> workorderContextChain = new Chain<>(checkParamHandler, checkStatusHandler);
+//        workorderContextChain.handle(context);
 
-        Chain<WorkorderContext> workorderContextChain = new Chain<>(checkParamHandler, checkStatusHandler);
-        workorderContextChain.handle(context);
+        List<TrsPriceDto> list = new ArrayList<>();
+        list.add(new TrsPriceDto("GD001", "1"));
+        list.add(new TrsPriceDto("GD002", "1"));
+        list.add(new TrsPriceDto("GD001", "1"));
+        List<TrsPriceDto> collect = list.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() ->
+                new TreeSet<>(Comparator.comparing(TrsPriceDto::getRefNo))), ArrayList::new));
+        System.out.println(collect);
     }
 
     @GetMapping("/chain/test2")
     public void test2() {
+        ThreadLocal t = new ThreadLocal();
         WorkorderContext context = new WorkorderContext();
         context.setValue("xxx");
         context.setStatus(3);
