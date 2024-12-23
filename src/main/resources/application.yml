@@ -7,7 +7,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     #腾讯云数据库
-    url: jdbc:mysql://39.99.136.148:3306/sys?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://10.56.174.157:3306/smart?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
     # Keep the connection alive if idle for a long time (needed in production)
@@ -27,8 +27,8 @@ spring:
       FAIL_ON_EMPTY_BEANS: false
   #配置redis
   redis:
-    host: 39.99.136.148
-    port: 16380
+    host: 10.56.174.157
+    port: 6379
   #caffeine
   cache:
     type: caffeine
